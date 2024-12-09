@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Recensement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #fdfd96, #ffffff, #add8e6);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+            color: #003366;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .message {
+            font-style: italic;
+            color: #006400;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        button {
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00509e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulaire de Recensement</h1>
+        <h2>COMITÉ POUR L’ÉPANOUISSEMENT ACADÉMIQUE</h2>
+        <h3>BUREAU DES ETUDIANTS IITG</h3>
+        <h3>Bureau Communication et Événementielle</h3>
+        <h3>BEBONA Fanel & EDOU BIBANG Brunel</h3>
+
+        <form action="https://formspree.io/f/xldekjor" method="POST" id="recensement-form">
+            <!-- INFORMATIONS DE L’ÉTUDIANT -->
+            <h2>INFORMATIONS DE L’ÉTUDIANT</h2>
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" required>
+            <p class="message" id="prenom-message">Jolie prénom 🤭</p>
+
+            <label for="date-naissance">Date et lieu de naissance:</label>
+            <input type="text" id="date-naissance" name="date-naissance" required>
+
+            <label for="nationalite">Nationalité:</label>
+            <input type="text" id="nationalite" name="nationalite" required>
+
+            <label>Boursier:</label>
+            <input type="radio" name="boursier" value="Oui"> Oui
+            <input type="radio" name="boursier" value="Non"> Non
+
+            <label for="classe">Classe:</label>
+            <select id="classe" name="classe" required>
+                <option value="">-- Sélectionnez --</option>
+                <option value="Licence 1">Licence 1</option>
+                <option value="Licence 2">Licence 2</option>
+                <option value="Licence 3">Licence 3</option>
+                <option value="Master 1">Master 1</option>
+                <option value="Master 2">Master 2</option>
+            </select>
+            <p class="message" id="classe-message">Bravo !</p>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="_replyto" placeholder="Entrez votre email" required>
+
+            <label for="telephone">Numéro de téléphone:</label>
+            <input type="tel" id="telephone" name="telephone" required>
+
+            <label for="adresse">Adresse:</label>
+            <textarea id="adresse" name="adresse" rows="2" required></textarea>
+
+            <!-- INFORMATIONS TUTEURS -->
+            <h2>INFORMATIONS TUTEURS</h2>
+            <label for="tuteur-nom">Nom:</label>
+            <input type="text" id="tuteur-nom" name="tuteur-nom" required>
+
+            <label for="tuteur-prenom">Prénom:</label>
+            <input type="text" id="tuteur-prenom" name="tuteur-prenom" required>
+
+            <label for="tuteur-metier">Métier:</label>
+            <input type="text" id="tuteur-metier" name="tuteur-metier" required>
+
+            <label for="tuteur-email">Email:</label>
+            <input type="email" id="tuteur-email" name="tuteur-email" required>
+
+            <label for="tuteur-adresse">Adresse:</label>
+            <textarea id="tuteur-adresse" name="tuteur-adresse" rows="2" required></textarea>
+
+            <label for="tuteur-telephone">Téléphone:</label>
+            <input type="tel" id="tuteur-telephone" name="tuteur-telephone" required>
+
+            <!-- INFORMATIONS SUPPLÉMENTAIRES -->
+            <h2>INFORMATIONS SUPPLÉMENTAIRES</h2>
+            <label>Avez-vous des antécédents médicaux importants que nous devrions connaître ?</label>
+            <input type="radio" name="antecedents" value="Oui" id="antecedents-oui"> Oui
+            <input type="radio" name="antecedents" value="Non" id="antecedents-non"> Non
+            <textarea id="details-antecedents" name="details-antecedents" rows="2"></textarea>
+            <p class="message" id="antecedents-message">T’inquiètes pas on est là pour t’aider, tu fais partie de la famille maintenant.</p>
+
+            <label>Avez-vous un handicap ?</label>
+            <input type="radio" name="handicap" value="Oui" id="handicap-oui"> Oui
+            <input type="radio" name="handicap" value="Non" id="handicap-non"> Non
+            <textarea id="details-handicap" name="details-handicap" rows="2"></textarea>
+            <p class="message" id="handicap-message">Nous sommes là pour t’aider. Si tu y mets du tiens ton handicap deviendra une force.</p>
+
+            <label for="activites">Quelles activités souhaiteriez-vous voir organisées par le Bureau des étudiants ?</label>
+            <textarea id="activites" name="activites" rows="2"></textarea>
+            <p class="message" id="activites-message">Ah ouais très intéressant ! Nous y réfléchirons, ton avis sera pris en compte 😉</p>
+
+            <label>Avez-vous une activité commerciale à proposer à l’institut ?</label>
+            <input type="radio" name="activite-commerciale" value="Oui" id="commerciale-oui"> Oui
+            <input type="radio" name="activite-commerciale" value="Non" id="commerciale-non"> Non
+            <textarea id="details-commerciale" name="details-commerciale" rows="2"></textarea>
+            <p class="message" id="commerciale-message">Ah ! Voilà un jeune entrepreneur. Bonne idée ! Nous ferons de notre mieux pour t’accompagner.</p>
+
+            <button type="submit" id="submit-btn">Soumettre</button>
+            <p class="message" id="submit-message">Le BDE te remercie pour ta coopération. À plus tard chers étudiants.</p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('prenom').addEventListener('input', function() {
+            document.getElementById('prenom-message').style.display = 'block';
+        });
+
+        document.getElementById('classe').addEventListener('change', function() {
+            if (this.value) {
+                document.getElementById('classe-message').style.display = 'block';
+            }
+        });
+
+        document.getElementById('antecedents-oui').addEventListener('change', function() {
+            document.getElementById('antecedents-message').style.display = 'block';
+        });
+
+        document.getElementById('handicap-oui').addEventListener('change', function() {
+            document.getElementById('handicap-message').style.display = 'block';
+        });
+
+        document.getElementById('activites').addEventListener('input', function() {
+            document.getElementById('activites-message').style.display = 'block';
+        });
+
+        document.getElementById('commerciale-oui').addEventListener('change', function() {
+            document.getElementById('commerciale-message').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
